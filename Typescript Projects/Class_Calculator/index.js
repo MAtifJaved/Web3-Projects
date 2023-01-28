@@ -1,8 +1,9 @@
 #! /usr/bin/env node
-// console.log("Hello Typescript");
 console.clear();
 import inquirer from 'inquirer';
-import chalkAnimation from 'chalk-animation';
+// import { title } from './Title/title.js';
+import { welcome } from './Welcome/welcome.js';
+// console.log("Hello Typescript");
 //Welcome The user
 //ask for numbers and operation as many as needed  
 //check if numbers are valid
@@ -11,17 +12,11 @@ import chalkAnimation from 'chalk-animation';
 // NPM Installation
 //npm i inquirer
 //npm i -D @types/inquirer
-const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
-async function welcome() {
-    const welcomeTitle = chalkAnimation.rainbow('Welcome to the CLI Based Calculator\n');
-    await sleep();
-    welcomeTitle.stop();
-}
-await welcome();
+welcome("welcome to the CLI Based Caculator");
+// async function welcome(msg: string) {
+//     console.log(msg);
+// }
 let checkConfirm = true;
-function welcomeMsg(msg) {
-    console.log(msg);
-}
 function validateNumber(input) {
     if (isNaN(input)) {
         // console.log("This is invalid Input",input);
@@ -86,7 +81,6 @@ async function getInput() {
     ]);
     checkConfirm = answer.confirm;
 }
-welcomeMsg("Welcome to The Best Calculator");
 do {
     await getInput();
     if (!checkConfirm) {

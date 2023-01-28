@@ -1,8 +1,10 @@
 #! /usr/bin/env node
-// console.log("Hello Typescript");
 console.clear();
 import inquirer from 'inquirer';
-import chalkAnimation from 'chalk-animation';
+// import { title } from './Title/title.js';
+import {welcome} from './Welcome/welcome.js';
+
+// console.log("Hello Typescript");
 //Welcome The user
 //ask for numbers and operation as many as needed  
 //check if numbers are valid
@@ -14,78 +16,67 @@ import chalkAnimation from 'chalk-animation';
 //npm i inquirer
 //npm i -D @types/inquirer
 
-const sleep=(ms=2000) => new Promise((r)=> setTimeout(r,ms));
 
-async function welcome(){
-    const welcomeTitle = chalkAnimation.rainbow('Welcome to the CLI Based Calculator\n');
-    await sleep();
-    welcomeTitle.stop()
-}
-
-await welcome();
+welcome("welcome to the CLI Based Caculator");
+// async function welcome(msg: string) {
+//     console.log(msg);
+// }
 
 
-
-let checkConfirm= true;
-
-function welcomeMsg(msg: string):void {
-    console.log(msg);
-}
-
-function validateNumber(input:any):string|Boolean{ 
-        if(isNaN(input)){
-            // console.log("This is invalid Input",input);
-            return "Please Enter a valid number";
-        }
-        else{
-            // console.log("This is valid Input",input);
-            return true;
-        }          
+let checkConfirm = true;
+function validateNumber(input: any): string | Boolean {
+    if (isNaN(input)) {
+        // console.log("This is invalid Input",input);
+        return "Please Enter a valid number";
+    }
+    else {
+        // console.log("This is valid Input",input);
+        return true;
+    }
 }
 
 
 type answers = {
-    firstNumber:string,
-    secondNumber:string,
-    operation:"+" | "-" | "*" | "÷" |"%" |"^"
+    firstNumber: string,
+    secondNumber: string,
+    operation: "+" | "-" | "*" | "÷" | "%" | "^"
 }
 
-
-async function getInput(){
-    const answers:answers = await inquirer.prompt([
+async function getInput() {
+    const answers: answers = await inquirer.prompt([
         {
-            type:"input",
-            name:"firstNumber",
-            message:"Enter First number",
-            validate:validateNumber
+            type: "input",
+            name: "firstNumber",
+            message: "Enter First number",
+            validate: validateNumber
         },
         {
-            type:"list",
-            name:"operation",
-            choices:["+","-","*","÷","%","^"],
-            message:"Choose One Operation",
+            type: "list",
+            name: "operation",
+            choices: ["+", "-", "*", "÷", "%", "^"],
+            message: "Choose One Operation",
         },
         {
-            type:"input",
-            name:"secondNumber",
-            message:"Enter Second number",
-            validate:validateNumber
-        }     
+            type: "input",
+            name: "secondNumber",
+            message: "Enter Second number",
+            validate: validateNumber
+        }
     ])
 
     const firstNumber = Number(answers.firstNumber);
     const secondNumber = Number(answers.secondNumber);
 
-    switch(answers.operation){
+    switch (answers.operation) {
         case "+":
             console.log(`Results: ${firstNumber + secondNumber}`);
             break;
         case "-":
             console.log(`Results: ${firstNumber - secondNumber}`);
-            break;   
+            break;
         case "*":
             console.log(`Results: ${firstNumber * secondNumber}`);
-            break; 
+            break;
         case "÷":
             console.log(`Results: ${firstNumber / secondNumber}`);
             break;
@@ -93,29 +84,25 @@ async function getInput(){
             console.log(`Results: ${firstNumber % secondNumber}`);
             break;
         case "^":
-            console.log(`Results: ${Math.pow(firstNumber,secondNumber)}`);
+            console.log(`Results: ${Math.pow(firstNumber, secondNumber)}`);
             break;
         default:
             break;
-    }    
+    }
 
     const answer = await inquirer.prompt([
         {
-            name:"confirm",
-            type:"confirm",
-            message:"Do you want to Try Again"
-       }
-    ])
-
-    checkConfirm =answer.confirm;
+            name: "confirm",
+            type: "confirm",
+            message: "Do you want to Try Again"
+        }
+    ]);
+    checkConfirm = answer.confirm;
 }
 
-welcomeMsg("Welcome to The Best Calculator");
-
-do{
+do {
     await getInput();
-    if(!checkConfirm){
+    if (!checkConfirm) {
         console.log("Allah Hafiz");
     }
-}while(checkConfirm)
-
+} while (checkConfirm)
