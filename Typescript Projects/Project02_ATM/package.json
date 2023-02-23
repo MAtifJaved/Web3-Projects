@@ -1,6 +1,6 @@
 {
-  "name": "project02_atm",
-  "version": "1.0.0",
+  "name": "project02_atm_by_atif",
+  "version": "1.0.3",
   "description": "ATM CLI PROJECT",
   "main": "index.js",
   "type": "module",

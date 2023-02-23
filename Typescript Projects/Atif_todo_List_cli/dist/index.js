@@ -1,22 +1,14 @@
 #!/usr/bin/env node
+`node --trace-warnings ...`;
 // console.log("Hello World");
 import { TodoItem } from "./todoItem.js";
 import { JsonTodoCollection } from "./jsonTodoCollection.js";
 import inquirer from "inquirer";
+let showCompleted = true;
 let todos = [new TodoItem(1, "Buy Flowers"), new TodoItem(2, "Get Shoes"),
     new TodoItem(3, "Collect Tickets"), new TodoItem(4, "Call Joe", true)
 ];
 let collection = new JsonTodoCollection("Atif", todos);
-let showCompleted = true;
-// let newId:number = collection.addTodo("Go for Run");
-// console.log("newId:",newId);
-// let todoItem= collection.getTodoById(newId);
-// console.log("todoItem:",todoItem);
-// console.log(JSON.stringify(todoItem));
-// todoItem.printDetails();
-// collection.addTodo(todoItem)
-// collection.getTodoItems(true).forEach(item => item.printDetails());  // Before Removing Complete Todo's
-// collection.removeComplete();
 function displayTodoList() {
     console.log((`${collection.userName}'s Todo List `) + `${collection.getItemCounts().incomplete} Items to do`);
     collection.getTodoItems(showCompleted).forEach(item => item.printDetails());
@@ -90,8 +82,6 @@ function promptUser() {
                 promptUser();
                 break;
             case Commands.Quit:
-                // collection.removeComplete();
-                // promptUser();
                 showCompleted = false;
                 break;
             default:
