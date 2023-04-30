@@ -1,4 +1,4 @@
-import Home from "@/views/home"
+import Home from "@/components/home"
 
 export default function App() {
   return (
