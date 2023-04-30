@@ -28,7 +28,7 @@ const Home = (props: FlexProps) => {
             of Pakistan on 9th September 2018.
           </Text>
           <Text mb={5}>
-            Dr. Arif Alvi Sb was born in{" "}
+            Dr. Arif Alvi was born in{" "}
             <span style={{ fontWeight: "bold" }}>1949</span> and completed his
             early education in Karachi. He did his Bachelor of Dental Surgery
             (BDS) from De’ Montmorency College of Dentistry, Lahore where he was
