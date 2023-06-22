@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+
 import AboutContent from "@/components/about";
 
 const aboutPage = () => {

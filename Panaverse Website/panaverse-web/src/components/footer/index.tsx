@@ -58,7 +58,7 @@ export default function Footer(props: BoxProps) {
                 isExternal
                 href="https://github.com/MAtifJaved"
               >
-                Muhammad Atif Javed
+                Engr. Atif Javed
               </Link>
             </Text>
           </Stack>

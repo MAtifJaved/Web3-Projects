@@ -21,7 +21,9 @@ const Feedback = () => {
           </Text>
           <Flex>
             <VStack>
-              <Image src={picture} alt="picture" height={100} width={70}/>
+              <Box borderRadius="full" overflow="hidden" boxSize="90px">
+                <Image src={picture} alt="picture" />
+              </Box>
               <Text fontWeight={"black"} mt={"20px"}>Muhammad Atif Javed</Text>
               <Text>Electrical Engineer</Text>
             </VStack>
