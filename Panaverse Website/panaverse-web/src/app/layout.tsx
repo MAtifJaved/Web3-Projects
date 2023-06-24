@@ -1,6 +1,8 @@
 import ChakraWrapper from "@/components/ChakraWrapper";
+import { Suspense } from "react";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import Loading from "./loading";
 
 
 export default function RootLayout({
@@ -17,9 +19,11 @@ export default function RootLayout({
       <head />
       <body>
         <ChakraWrapper>
+          <Suspense fallback={<Loading />}>
           <Navbar/>
           {children}
           <Footer/>
+          </Suspense>
         </ChakraWrapper>
       </body>
     </html>
