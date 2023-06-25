@@ -163,10 +163,13 @@ export default function Footer2(props: BoxProps) {
             <ListHeader>Stay up to date</ListHeader>
             <Stack direction={"row"}>
               <InputGroup>
-                <InputLeftElement
+                {/* <InputLeftElement
                 pointerEvents="none"
                 children={<GoMail color="gray.300"/>}
-                />
+                /> */}
+                <InputLeftElement pointerEvents="none">
+                  <GoMail color="gray.300"/>
+                </InputLeftElement>
                 <Input
                   placeholder={"Enter email"}
                   _placeholder={{ color: "white" }}
